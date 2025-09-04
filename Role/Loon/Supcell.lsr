@@ -1,0 +1,33 @@
+# Supercell 核心域名
+DOMAIN-SUFFIX,supercell.com
+DOMAIN-SUFFIX,supercell.net
+DOMAIN-SUFFIX,clashroyaleapp.com
+DOMAIN-SUFFIX,clashofclans.com
+DOMAIN-KEYWORD,supercell
+
+# 登录 / 商店
+DOMAIN,accounts.supercell.com
+DOMAIN,store.supercell.com
+
+# 游戏资源 & CDN
+DOMAIN-SUFFIX,sc-prod.net
+DOMAIN-SUFFIX,helpshift.com
+DOMAIN-SUFFIX,gameservices.com
+DOMAIN-SUFFIX,akamaized.net
+DOMAIN-SUFFIX,amazonaws.com
+DOMAIN-SUFFIX,cloudfront.net
+
+# 第三方 SDK & 分析（部分活动需要）
+DOMAIN-SUFFIX,adjust.com
+DOMAIN-SUFFIX,appsflyer.com
+DOMAIN-SUFFIX,firebaseio.com
+DOMAIN-SUFFIX,google-analytics.com
+DOMAIN-SUFFIX,googletagmanager.com
+DOMAIN-SUFFIX,gstatic.com
+
+# UDP 游戏对战端口（iOS 必须）
+AND,((NOT,(IP-ASN,CN)),(PROTOCOL,UDP),(DEST-PORT,9339))
+AND,((NOT,(IP-ASN,CN)),(PROTOCOL,UDP),(DEST-PORT,9443))
+AND,((NOT,(IP-ASN,CN)),(PROTOCOL,UDP),(DEST-PORT,20000))
+AND,((NOT,(IP-ASN,CN)),(PROTOCOL,UDP),(DEST-PORT,21000))
+AND,((NOT,(IP-ASN,CN)),(PROTOCOL,UDP),(DEST-PORT,5222))
