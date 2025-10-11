@@ -1,0 +1,16 @@
+#!name=Supercell 请求修改模块
+#!desc=【纯功能模块】仅负责启用 MITM 并引用脚本伪造设备地区，不包含任何分流规则。
+
+[MITM]
+# 脚本要修改内容，必须对 id.supercell.com 进行解密
+hostname = %APPEND% id.supercell.com
+
+[Script]
+# 从您的 GitHub 远程引用脚本
+supercell_geofaker = type=http-request, script-path=https://raw.githubusercontent.com/yyyangnnnan/Proxy/refs/heads/main/Supercell/supercell_geofaker.js, requires-body=true, timeout=10
+
+[Rule]
+# 脚本触发规则 (注意：这里没有 PROXY 或 DIRECT)
+# 它的作用是在请求匹配到 id.supercell.com 时，先执行脚本
+# 执行完毕后，请求会继续向下匹配您的主配置文件中的其他规则
+DOMAIN,id.supercell.com,script:supercell_geofaker
