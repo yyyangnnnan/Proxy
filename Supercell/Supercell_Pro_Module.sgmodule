@@ -1,4 +1,4 @@
-#!name=Supercell 核心脚本模块 (云端版)
+#!name=Supercell 核心脚本模块
 #!desc=从 GitHub 远程引用脚本，伪造设备地区。分流规则请在主配置中通过 RULE-SET 引入。
 
 [MITM]
@@ -6,7 +6,6 @@
 hostname = %APPEND% id.supercell.com
 
 [Script]
-# 核心变化：script-path 直接使用您的 GitHub Raw 链接
 supercell_geofaker = type=http-request, script-path=https://raw.githubusercontent.com/yyyangnnnan/Proxy/refs/heads/main/Supercell/supercell_geofaker.js, requires-body=true, timeout=10
 
 [Rule]
