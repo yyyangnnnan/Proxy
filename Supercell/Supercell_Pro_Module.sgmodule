@@ -1,0 +1,15 @@
+#!name=Supercell 核心脚本模块
+#!desc=仅负责启用 MITM 并引用 JS 脚本伪造设备地区。分流规则请在主配置中通过 RULE-SET 引入。
+
+[MITM]
+# 脚本要修改内容，必须对 id.supercell.com 进行解密
+hostname = %APPEND% id.supercell.com
+
+[Script]
+# 声明并引用 JS 脚本
+supercell_geofaker = type=http-request, script-path=supercell_geofaker.js, requires-body=true
+
+[Rule]
+# 仅保留脚本触发规则
+# 当请求 id.supercell.com 时，执行脚本，然后让请求继续传递下去
+DOMAIN,id.supercell.com,script:supercell_geofaker
