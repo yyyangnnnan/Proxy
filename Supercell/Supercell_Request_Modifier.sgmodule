@@ -1,9 +1,0 @@
-#!name=Supercell 请求修改模块
-#!desc=只启用 MITM 并在 session.init 上执行脚本
-
-[MITM]
-hostname = %APPEND% id.supercell.com
-
-[Script]
-# 精确匹配 session.init，确保脚本在该请求上触发
-
