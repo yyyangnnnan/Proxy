@@ -1,24 +1,28 @@
 # =======================================================
-# Supercell 游戏通用分流规则列表
-# 最后更新: 2025-10-11
-# 描述: 包含了 Supercell 旗下游戏所需的核心域名及UDP规则。
+# Supercell 游戏通用分流规则列表 (强化版)
 # =======================================================
 
-# --- 核心服务域名 ---
-# 负责登录、社交、游戏内新闻、商店等
+# --- Supercell 公司及ID核心域名 ---
 DOMAIN-SUFFIX,supercell.com
-DOMAIN-SUFFIX,inbox.supercell.com
-DOMAIN-SUFFIX,mtech.supercell.com
 DOMAIN-KEYWORD,supercell
 
+# --- 游戏专用域名 (必须添加！) ---
+DOMAIN-SUFFIX,clashofclans.com
+DOMAIN-SUFFIX,clashroyale.com
+DOMAIN-SUFFIX,brawlstars.com
+DOMAIN-SUFFIX,hayday.com
+DOMAIN-SUFFIX,boombeach.com
+# 等等，您可以按需添加其他游戏
+
+# --- 游戏资源及CDN ---
+DOMAIN-SUFFIX,sc-prod.net
+
 # --- 第三方依赖 ---
-# 负责数据分析、错误上报、人机验证和隐私合规
 DOMAIN-SUFFIX,app-analytics-services.com
 DOMAIN-SUFFIX,ingest.sentry.io
 DOMAIN-SUFFIX,recaptcha.net
 DOMAIN-SUFFIX,usercentrics.eu
+DOMAIN-SUFFIX,helpshift.com
 
 # --- UDP 流量规则 ---
-# 捕获游戏对战和延迟探测的UDP流量
-# 规则含义: 目标IP不在中国大陆，且协议为UDP，且目标端口不是53(DNS)
 AND,((PROTOCOL,UDP),(NOT,(GEOIP,CN)),(NOT,(DEST-PORT,53)))
