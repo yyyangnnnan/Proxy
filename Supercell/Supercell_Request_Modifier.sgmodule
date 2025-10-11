@@ -1,14 +1,10 @@
 #!name=Supercell 请求修改模块
-#!desc=仅启用 MITM 并在 session.init 上执行地理伪造脚本
+#!desc=只启用 MITM 并在 session.init 上执行脚本
 
 [MITM]
 hostname = %APPEND% id.supercell.com
 
 [Script]
-# 名称 = type=http-request,pattern=<正则或前缀匹配>,script-path=<raw URL>,requires-body=true,timeout=10,debug=true
-supercell_geofaker = type=http-request,pattern=^https?://id\.supercell\.com/api/social/v3/session\.init,script-path=https://raw.githubusercontent.com/yyyangnnnan/Proxy/refs/heads/main/Supercell/supercell_geofaker.js,requires-body=true,timeout=10,debug=true
-
-[Rule]
-# 不写代理策略（此模块只负责脚本/mitm），把域名保留让主配置接着处理
-DOMAIN-SUFFIX,id.supercell.com
+# 精确匹配 session.init，确保脚本在该请求上触发
+supercell_geofaker = type=http-request,pattern=^https?://id\.supercell\.com/api/social/v3/session\.init,script-path=https://raw.githubusercontent.com/you/yourrepo/main/Supercell/supercell_geofaker_force.js,requires-body=true,timeout=10,debug=true
 
