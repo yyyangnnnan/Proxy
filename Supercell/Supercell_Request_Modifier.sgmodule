@@ -6,7 +6,7 @@ hostname = %APPEND% id.supercell.com
 
 [Script]
 # 名称 = type=http-request,pattern=<正则或前缀匹配>,script-path=<raw URL>,requires-body=true,timeout=10,debug=true
-supercell_geofaker = type=http-request,pattern=^https?://id\.supercell\.com/api/social/v3/session\.init,script-path=https://raw.githubusercontent.com/yourname/yourrepo/main/Supercell/supercell_geofaker_precise.js,requires-body=true,timeout=10,debug=true
+supercell_geofaker = type=http-request,pattern=^https?://id\.supercell\.com/api/social/v3/session\.init,script-path=https://raw.githubusercontent.com/yyyangnnnan/Proxy/refs/heads/main/Supercell/supercell_geofaker.js,requires-body=true,timeout=10,debug=true
 
 [Rule]
 # 不写代理策略（此模块只负责脚本/mitm），把域名保留让主配置接着处理
