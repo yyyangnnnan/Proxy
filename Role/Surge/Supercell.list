@@ -1,6 +1,9 @@
 # =======================================================
-# Supercell 游戏通用分流规则列表 (强化版)
+# Supercell 游戏通用分流规则列表
 # =======================================================
+
+# --- Supercell 国内 排除项
+DOMAIN,cr-cdn.supercellgame.cn,DIRECT
 
 # --- Supercell 公司及ID核心域名 ---
 DOMAIN-SUFFIX,supercell.com
@@ -26,5 +29,4 @@ DOMAIN-SUFFIX,usercentrics.eu
 DOMAIN-SUFFIX,helpshift.com
 
 # --- UDP 流量规则 ---
-//AND,((PROTOCOL,UDP),(NOT,(GEOIP,CN)),(NOT,(DEST-PORT,53)))
-AND,((PROTOCOL,UDP),(NOT,(GEOIP,CN)),(NOT,(DEST-PORT,53)),(NOT,(DOMAIN,cr-cdn.supercellgame.cn)))
+AND,((PROTOCOL,UDP),(NOT,(GEOIP,CN)),(NOT,(DEST-PORT,53)))
