@@ -2,9 +2,6 @@
 # Supercell 游戏通用分流规则列表
 # =======================================================
 
-# --- Supercell 国内 排除项
-DOMAIN,cr-cdn.supercellgame.cn,DIRECT
-
 # --- Supercell 公司及ID核心域名 ---
 DOMAIN-SUFFIX,supercell.com
 DOMAIN-KEYWORD,supercell
