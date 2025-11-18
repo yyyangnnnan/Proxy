@@ -26,4 +26,5 @@ DOMAIN-SUFFIX,usercentrics.eu
 DOMAIN-SUFFIX,helpshift.com
 
 # --- UDP 流量规则 ---
-AND,((PROTOCOL,UDP),(NOT,(GEOIP,CN)),(NOT,(DEST-PORT,53)))
+//AND,((PROTOCOL,UDP),(NOT,(GEOIP,CN)),(NOT,(DEST-PORT,53)))
+AND,((PROTOCOL,UDP),(NOT,(GEOIP,CN)),(NOT,(DEST-PORT,53)),(NOT,(DOMAIN,cr-cdn.supercellgame.cn)))
