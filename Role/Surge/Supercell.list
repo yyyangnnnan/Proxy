@@ -9,11 +9,12 @@ DOMAIN-KEYWORD,supercell
 # --- 游戏专用域名 (必须添加！) ---
 DOMAIN-SUFFIX,clashofclans.com
 DOMAIN-SUFFIX,clashroyale.com
+DOMAIN-SUFFIX,clashroyaleapp.com
 DOMAIN-SUFFIX,brawlstars.com
+DOMAIN-SUFFIX,brawlstarsgame.com
 DOMAIN-SUFFIX,hayday.com
 DOMAIN-SUFFIX,boombeach.com
 DOMAIN-SUFFIX,boombeachgame.com
-DOMAIN-SUFFIX,clashroyaleapp.com
 # 等等，您可以按需添加其他游戏
 
 # --- 游戏资源及CDN ---
