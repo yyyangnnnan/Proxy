@@ -1,0 +1,39 @@
+#!name = Supercell 游戏加速插件
+#!desc = 针对 Supercell 旗下游戏（部落冲突、皇室战争、荒野乱斗等）的自动分流与 UDP 优化规则。包含误匹配排除与复杂逻辑过滤。
+#!icon = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Supercell.png
+#!author = yyyangnnnan
+#!date = 2026-01-03
+
+[Argument]
+Proxy = { "title": "代理策略", "desc": "请选择用于加速游戏的代理策略组", "defaultValue": "PROXY" }
+
+[Rule]
+# --- 1. 排除误匹配规则 (放在最上方，优先匹配直连) ---
+DOMAIN-SUFFIX,apple.com,DIRECT
+DOMAIN-SUFFIX,supercellgame.cn,DIRECT
+
+# --- 2. 游戏核心域名 (走选定的代理策略) ---
+DOMAIN-SUFFIX,supercell.com,{Proxy}
+DOMAIN-KEYWORD,supercell,{Proxy}
+DOMAIN-SUFFIX,clashofclans.com,{Proxy}
+DOMAIN-SUFFIX,clashroyale.com,{Proxy}
+DOMAIN-SUFFIX,clashroyaleapp.com,{Proxy}
+DOMAIN-SUFFIX,brawlstars.com,{Proxy}
+DOMAIN-SUFFIX,brawlstarsgame.com,{Proxy}
+DOMAIN-SUFFIX,hayday.com,{Proxy}
+DOMAIN-SUFFIX,boombeach.com,{Proxy}
+DOMAIN-SUFFIX,boombeachgame.com,{Proxy}
+DOMAIN-SUFFIX,mocogame.com,{Proxy}
+
+# --- 3. 资源、CDN 及第三方依赖 ---
+DOMAIN-SUFFIX,sc-prod.net,{Proxy}
+DOMAIN-SUFFIX,app-analytics-services.com,{Proxy}
+DOMAIN-SUFFIX,ingest.sentry.io,{Proxy}
+DOMAIN-SUFFIX,recaptcha.net,{Proxy}
+DOMAIN-SUFFIX,usercentrics.eu,{Proxy}
+DOMAIN-SUFFIX,helpshift.com,{Proxy}
+
+# --- 4. 复杂逻辑规则 (UDP 优化) ---
+# 逻辑：是 UDP 协议 且 目标非中国 IP 且 目标端口非 53 -> 走代理
+# 说明：使用双括号嵌套以确保 Loon 解析准确
+AND,((PROTOCOL,UDP),(NOT,((GEOIP,CN,no-resolve))),(NOT,((DEST-PORT,53)))),{Proxy}
