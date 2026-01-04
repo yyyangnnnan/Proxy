@@ -31,4 +31,7 @@ DOMAIN-SUFFIX,usercentrics.eu,PROXY
 DOMAIN-SUFFIX,helpshift.com,PROXY
 
 # --- 4. UDP 逻辑规则 ---
-AND,((PROTOCOL,UDP),(NOT,(GEOIP,CN)),(NOT,(DEST-PORT,53))),PROXY
+# 抓取海外 QUIC (排除 53 端口)
+AND,((PROTOCOL,QUIC),(NOT,(GEOIP,CN,no-resolve)),(NOT,(DEST-PORT,53))),PROXY
+# 抓取海外 UDP (排除 53 端口)
+AND,((PROTOCOL,UDP),(NOT,(GEOIP,CN,no-resolve)),(NOT,(DEST-PORT,53))),PROXY
