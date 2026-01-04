@@ -1,0 +1,34 @@
+#!name = Supercell 游戏分流
+#!desc = 可长期分流低价区
+#!icon = 
+#!author = yyyangnnnan
+#!date = 2026-01-04
+
+[Rule]
+# --- 1. 排除规则 ---
+DOMAIN-SUFFIX,apple.com,DIRECT
+DOMAIN-SUFFIX,supercellgame.cn,DIRECT
+
+# --- 2. 核心域名 ---
+DOMAIN-SUFFIX,supercell.com,PROXY
+DOMAIN-KEYWORD,supercell,PROXY
+DOMAIN-SUFFIX,clashofclans.com,PROXY
+DOMAIN-SUFFIX,clashroyale.com,PROXY
+DOMAIN-SUFFIX,clashroyaleapp.com,PROXY
+DOMAIN-SUFFIX,brawlstars.com,PROXY
+DOMAIN-SUFFIX,brawlstarsgame.com,PROXY
+DOMAIN-SUFFIX,hayday.com,PROXY
+DOMAIN-SUFFIX,boombeach.com,PROXY
+DOMAIN-SUFFIX,boombeachgame.com,PROXY
+DOMAIN-SUFFIX,mocogame.com,PROXY
+
+# --- 3. 资源及依赖 ---
+DOMAIN-SUFFIX,sc-prod.net,PROXY
+DOMAIN-SUFFIX,app-analytics-services.com,PROXY
+DOMAIN-SUFFIX,ingest.sentry.io,PROXY
+DOMAIN-SUFFIX,recaptcha.net,PROXY
+DOMAIN-SUFFIX,usercentrics.eu,PROXY
+DOMAIN-SUFFIX,helpshift.com,PROXY
+
+# --- 4. UDP 逻辑规则 ---
+AND,((PROTOCOL,UDP),(NOT,(GEOIP,CN)),(NOT,(DEST-PORT,53))),PROXY
