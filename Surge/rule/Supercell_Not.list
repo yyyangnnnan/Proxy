@@ -1,0 +1,3 @@
+//排除误匹配规则
+DOMAIN-SUFFIX,apple.com
+DOMAIN-SUFFIX,supercellgame.cn
