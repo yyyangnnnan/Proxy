@@ -19,5 +19,9 @@ DOMAIN,beebi.org
 #守候
 DOMAIN,lite.cn2gias.uk
 DOMAIN,lite-v6.cn2gias.uk
+DOMAIN,server2.cn2gias.uk
 #misty
 DOMAIN,misty.cx
+#HG 临时规则
+DOMAIN,emby.dnscf.dpdns.org
+DOMAIN,my.microsoftpersonalcontent.com
