@@ -1,34 +1,41 @@
-- no_resolve: true
-  domain_keyword_set:
-    - "supercell"
-  domain_suffix_set:
-    - "supercell.com"
-    - "clashofclans.com"
-    - "clashroyale.com"
-    - "clashroyaleapp.com"
-    - "brawlstars.com"
-    - "brawlstarsgame.com"
-    - "hayday.com"
-    - "haydaygame.com"
-    - "boombeach.com"
-    - "boombeachgame.com"
-    - "mocogame.com"
-    - "sc-prod.net"
-    - "app-analytics-services.com"
-    - "ingest.sentry.io"
-    - "recaptcha.net"
-    - "usercentrics.eu"
-    - "helpshift.com"
+# =======================================================
+# Supercell 游戏通用分流规则集 
+# =======================================================
 
-- and:
-    match:
-      - protocol:
-          match: "UDP"
-      - not:
-          match:
-            - geoip:
-                match: "CN"
-      - not:
-          match:
-            - dest_port:
-                match: "53"
+no_resolve: true
+
+# --- 域名集合 ---
+domain_keyword_set:
+  - "supercell"
+domain_suffix_set:
+  - "supercell.com"
+  - "clashofclans.com"
+  - "clashroyale.com"
+  - "clashroyaleapp.com"
+  - "brawlstars.com"
+  - "brawlstarsgame.com"
+  - "hayday.com"
+  - "haydaygame.com"
+  - "boombeach.com"
+  - "boombeachgame.com"
+  - "mocogame.com"
+  - "sc-prod.net"
+  - "app-analytics-services.com"
+  - "ingest.sentry.io"
+  - "recaptcha.net"
+  - "usercentrics.eu"
+  - "helpshift.com"
+
+# --- UDP 流量逻辑规则 ---
+and:
+  match:
+    - protocol_set:
+        - "UDP"
+    - not:
+        match:
+          - geoip_set:
+              - "CN"
+    - not:
+        match:
+          - dest_port_set:
+              - "53"
