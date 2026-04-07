@@ -19,16 +19,16 @@ domain_suffix_set:
   - "recaptcha.net"
   - "usercentrics.eu"
   - "helpshift.com"
-
-AND:
-  match:
-    - protocol_set:
-        - "UDP"
+- and:
+    match:
     - not:
         match:
-          - geoip_set:
-              - "CN"
+          dest_port:
+            match: '53'
     - not:
         match:
-          - dest_port_set:
-              - "53"
+          geoip:
+            match: CN
+            no_resolve: false
+    - protocol:
+        match: udp
