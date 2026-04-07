@@ -1,10 +1,4 @@
-# =======================================================
-# Supercell 游戏通用分流规则集 
-# =======================================================
-
 no_resolve: true
-
-# --- 域名集合 ---
 domain_keyword_set:
   - "supercell"
 domain_suffix_set:
@@ -26,8 +20,7 @@ domain_suffix_set:
   - "usercentrics.eu"
   - "helpshift.com"
 
-# --- UDP 流量逻辑规则 ---
-and:
+AND:
   match:
     - protocol_set:
         - "UDP"
