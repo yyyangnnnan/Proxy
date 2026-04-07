@@ -1,0 +1,81 @@
+# =======================================================
+# Supercell 游戏通用分流规则集合 (Egern YAML)
+# =======================================================
+
+# 游戏公司核心域名
+- domain_suffix:
+    match: "supercell.com"
+    policy: Proxy
+
+- domain_keyword:
+    match: "supercell"
+    policy: Proxy
+
+# 游戏专用域名
+- domain_suffix:
+    match: "clashofclans.com"
+    policy: Proxy
+- domain_suffix:
+    match: "clashroyale.com"
+    policy: Proxy
+- domain_suffix:
+    match: "clashroyaleapp.com"
+    policy: Proxy
+- domain_suffix:
+    match: "brawlstars.com"
+    policy: Proxy
+- domain_suffix:
+    match: "brawlstarsgame.com"
+    policy: Proxy
+- domain_suffix:
+    match: "hayday.com"
+    policy: Proxy
+- domain_suffix:
+    match: "haydaygame.com"
+    policy: Proxy
+- domain_suffix:
+    match: "boombeach.com"
+    policy: Proxy
+- domain_suffix:
+    match: "boombeachgame.com"
+    policy: Proxy
+- domain_suffix:
+    match: "mocogame.com"
+    policy: Proxy
+
+# 游戏资源及 CDN
+- domain_suffix:
+    match: "sc-prod.net"
+    policy: Proxy
+
+# 第三方依赖
+- domain_suffix:
+    match: "app-analytics-services.com"
+    policy: Proxy
+- domain_suffix:
+    match: "ingest.sentry.io"
+    policy: Proxy
+- domain_suffix:
+    match: "recaptcha.net"
+    policy: Proxy
+- domain_suffix:
+    match: "usercentrics.eu"
+    policy: Proxy
+- domain_suffix:
+    match: "helpshift.com"
+    policy: Proxy
+
+# UDP 流量规则：匹配非中国、非 53 端口的 UDP 流量
+- and:
+    match:
+      - protocol:
+          match: "UDP"
+      - not:
+          match:
+            - geoip:
+                match: "CN"
+      - not:
+          match:
+            - dest_port:
+                match: "53"
+    policy: Proxy
