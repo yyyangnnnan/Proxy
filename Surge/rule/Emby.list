@@ -25,3 +25,5 @@ DOMAIN,misty.cx
 #HG 临时规则
 DOMAIN,emby.dnscf.dpdns.org
 DOMAIN,my.microsoftpersonalcontent.com
+#TH TV
+DOMAIN,tanhuatv.site
